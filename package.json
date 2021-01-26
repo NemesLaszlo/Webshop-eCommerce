@@ -1,0 +1,29 @@
+{
+  "name": "webshop-ecommerce",
+  "version": "1.0.0",
+  "description": "WebShop / e-Commerce application in MERN stack",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NemesLaszlo/Webshop-eCommerce.git"
+  },
+  "keywords": [
+    "MERN",
+    "Express",
+    "Node",
+    "MongoDB",
+    "React"
+  ],
+  "author": "Laszlo Nemes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NemesLaszlo/Webshop-eCommerce/issues"
+  },
+  "homepage": "https://github.com/NemesLaszlo/Webshop-eCommerce#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
