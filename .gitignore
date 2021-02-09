@@ -1,5 +1,9 @@
 node_modules/
 
+/coverage
+
+/frontend/build
+
 .DS_Store
 .env
 .env.local

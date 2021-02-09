@@ -21,14 +21,13 @@ const ProductScreen = ({history, match}) => {
     const {loading, error, product} = productDetails
 
     const productReviewCreate = useSelector(state => state.productReviewCreate)
-    const {success:successProductReview, error:errorProductReview} = productReviewCreate
+    const {loading: loadingProductReview, success:successProductReview, error:errorProductReview} = productReviewCreate
 
     const userLogin = useSelector(state => state.userLogin)
     const {userInfo} = userLogin
 
     useEffect(() => {
         if(successProductReview) {
-            alert('Review Submitted!')
             setRating(0)
             setComment('')
             dispatch({type: PRODUCT_CREATE_REVIEW_RESET})
@@ -161,6 +160,8 @@ const ProductScreen = ({history, match}) => {
 
                             <ListGroup.Item>
                                 <h2>Write a Customer Review</h2>
+                                {successProductReview && (<Message variant='success'>Review submitted successfully</Message>)}
+                                {loadingProductReview && <Loader />}
                                 {errorProductReview && (<Message variant='danger'>{errorProductReview}</Message>)}
                                 {userInfo ? (
                                     <Form onSubmit={submitHandler}>
@@ -182,7 +183,7 @@ const ProductScreen = ({history, match}) => {
                                             <Form.Control as='textarea' row='3' value={comment} onChange={e => setComment(e.target.value)}></Form.Control>
                                         </Form.Group>
 
-                                        <Button type='submit' variant='primary'>
+                                        <Button disabled={loadingProductReview} type='submit' variant='primary'>
                                             Submit
                                         </Button>
                                         
